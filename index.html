@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <title>Pokédex Pro | Gotta Catch 'Em All!</title>
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+      <div class="loading-content">
+        <div class="pokeball-loading">
+          <div class="pokeball-top"></div>
+          <div class="pokeball-center"></div>
+          <div class="pokeball-bottom"></div>
+        </div>
+        <p>Loading Pokémon...</p>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <div class="pokeball-icon">
+              <div class="pokeball-top-small"></div>
+              <div class="pokeball-center-small"></div>
+              <div class="pokeball-bottom-small"></div>
+            </div>
+            <h1>Pokédex Pro</h1>
+          </div>
+          <p class="tagline">Gotta Catch 'Em All!</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Controls Section -->
+    <section class="controls">
+      <div class="container">
+        <div class="search-container">
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Search Pokémon by name or number...">
+            <button class="clear-search" id="clearSearch">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          
+          <div class="filters">
+            <div class="filter-group">
+              <label for="typeFilter">Filter by Type:</label>
+              <select id="typeFilter">
+                <option value="all">All Types</option>
+                <option value="fire">Fire</option>
+                <option value="water">Water</option>
+                <option value="grass">Grass</option>
+                <option value="electric">Electric</option>
+                <option value="psychic">Psychic</option>
+                <option value="ice">Ice</option>
+                <option value="dragon">Dragon</option>
+                <option value="dark">Dark</option>
+                <option value="fairy">Fairy</option>
+                <option value="normal">Normal</option>
+                <option value="fighting">Fighting</option>
+                <option value="flying">Flying</option>
+                <option value="poison">Poison</option>
+                <option value="ground">Ground</option>
+                <option value="rock">Rock</option>
+                <option value="bug">Bug</option>
+                <option value="ghost">Ghost</option>
+                <option value="steel">Steel</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="sortSelect">Sort by:</label>
+              <select id="sortSelect">
+                <option value="number">Number</option>
+                <option value="name">Name</option>
+                <option value="type">Type</option>
+              </select>
+            </div>
+
+            <button class="btn btn-secondary" id="toggleFavorites">
+              <i class="far fa-heart"></i>
+              Favorites
+            </button>
+          </div>
+        </div>
+
+        <div class="stats-bar">
+          <div class="stat-item">
+            <span class="stat-label">Total Pokémon:</span>
+            <span class="stat-value" id="totalCount">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Showing:</span>
+            <span class="stat-value" id="showingCount">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Favorites:</span>
+            <span class="stat-value" id="favoritesCount">0</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main">
+      <div class="container">
+        <div class="poke-container" id="pokeContainer">
+          <!-- Pokémon cards will be loaded here -->
+        </div>
+
+        <!-- Load More Button -->
+        <div class="load-more-container">
+          <button class="btn btn-primary" id="loadMore">
+            <i class="fas fa-plus"></i>
+            Load More Pokémon
+          </button>
+        </div>
+
+        <!-- Empty State -->
+        <div class="empty-state" id="emptyState">
+          <div class="empty-icon">
+            <i class="fas fa-search"></i>
+          </div>
+          <h3>No Pokémon Found</h3>
+          <p>Try adjusting your search or filters</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Pokémon Detail Modal -->
+    <div class="modal" id="pokemonModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="modalName">Pikachu</h2>
+          <button class="modal-close" id="modalClose">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-body" id="modalBody">
+          <!-- Modal content will be loaded here -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+      <span class="notification-text"></span>
+      <i class="fas fa-times notification-close"></i>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>Made with <i class="fas fa-heart"></i> for Pokémon fans | Data from <a href="https://pokeapi.co/" target="_blank">PokéAPI</a></p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
